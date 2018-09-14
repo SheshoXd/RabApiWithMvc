@@ -1,0 +1,57 @@
+﻿@model IEnumerable<RabApiWithMvc.Models.ClientAccount>
+
+@{
+    ViewBag.Title = "GetClinteAccounts";
+}
+
+<h2>GetClinteAccounts</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Client.ClntName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ClntDebit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ClntCreditor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateCreated)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsDeleted)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Client.ClntName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClntDebit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClntCreditor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateCreated)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsDeleted)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ClntAccId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ClntAccId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ClntAccId })
+        </td>
+    </tr>
+}
+
+</table>

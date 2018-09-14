@@ -1,0 +1,15 @@
+﻿.delete-btn a{
+    color:#fff;
+}
+.page {
+    padding-left: 18%;
+    min-height: 730px;
+}
+
+.form-horizontal .form-group {
+
+    padding-bottom: 30px;
+}
+textarea{
+    width:100%;
+}

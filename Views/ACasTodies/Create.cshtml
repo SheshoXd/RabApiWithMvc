@@ -1,0 +1,238 @@
+﻿@model RabApiWithMvc.Models.CasTody
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+
+    <div ng-controller="CastodyController" id="myctrl" class="x_panel">
+    <div class="x_title">
+        <h2> <small>صرف عهده</small> اذن صرف  رقم # @ViewBag.Num </h2>
+        <ul class="nav navbar-left panel_toolbox">
+            <li>
+                <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li>
+                        <a href="#">Settings 1</a>
+                    </li>
+                    <li>
+                        <a href="#">Settings 2</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a class="close-link"><i class="fa fa-close"></i></a>
+            </li>
+        </ul>
+        <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+        <br>
+        <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
+            <div class="form-group">
+                <div class="col-md-6">
+                    <label class="control-label col-md-3 col-sm-3 col-xs-12">'صرف عهده لـ</label>
+                    <div class="form-group">
+
+                        <div class="col-md-5 col-sm-5 col-xs-6">
+                            <select id="mySelect" onchange="myFunction();" class="form-control">
+                                <option>اختار</option>
+                                <option selected="1" value="cr">سيارة</option>
+                                <option value="ep">موظف</option>
+
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-6">
+                    <label id="CostForL" class="control-label col-md-3 col-sm-3 col-xs-12">سيارة </label>
+                    <div class="form-group">
+
+                        <div class="col-md-5 col-sm-5 col-xs-6">
+                            <select id="CarList" onchange="CarChanged();" class="form-control">
+
+                                <option selected="1">اختار</option>
+                                @foreach (var item in ViewBag.Cars)
+                                {
+                                    <option value="@item.CarId">@item.CarNo</option>
+                                }
+
+
+
+                            </select>
+                            <select id="EmpList"  class="form-control hidden">
+
+                                <option selected="1">اختار</option>
+                                @foreach (var item in ViewBag.Emps)
+                                {
+                                    <option  value="@item.EmpId">@item.EmpName</option>
+                                }
+
+
+
+                            </select>
+
+                        </div>
+                    </div>
+                    @*<div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type="text" class="form-control" disabled="disabled" placeholder="">
+                        </div>*@
+                </div>
+
+            </div>
+
+
+
+            <div class="form-group">
+                <div class="col-md-6">
+                    <label id="CostForL" class="control-label col-md-3 col-sm-3 col-xs-12">تاريخ الصرف  </label>
+                    <div class="form-group">
+
+                        <div class="col-md-5 col-sm-5 col-xs-6">
+
+                            <input type="text" class="form-control has-feedback-right" id="single_cal4" placeholder="اختر تاريخ -اجبارى" aria-describedby="inputSuccess2Status4">
+                            <span class="fa fa-calendar-o form-control-feedback right" aria-hidden="true"></span>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+                    <label id="CostForL" class="control-label col-md-3 col-sm-3 col-xs-12">تاريخ التسويه </label>
+                    <div class="form-group">
+
+                        <div class="col-md-5 col-sm-5 col-xs-6">
+                            <input type="text" class="form-control has-feedback-right" id="single_cal5" placeholder="اختر تاريخ -اختيارى" aria-describedby="inputSuccess2Status4">
+                            <span class="fa fa-calendar-o form-control-feedback right" aria-hidden="true"></span>
+                            <span id="inputSuccess2Status4" class="sr-only">(success)</span>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-6">
+                    <label id="CostForL" class="control-label col-md-3 col-sm-3 col-xs-12">المبلغ </label>
+                    <div class="form-group">
+
+                        <div class="col-md-5 col-sm-5 col-xs-6">
+                            <input type="number" required class="form-control text-box text-center single-line has-feedback-right" />
+                            <span class="fa fa-money form-control-feedback right " aria-hidden="true"></span>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+                    <label id="CostForL" class="control-label col-md-3 col-sm-3 col-xs-12">قديم </label>
+                    <div class="form-group">
+
+                        <div class="col-md-5 col-sm-5 col-xs-6">
+
+                            <input id="LastCs" type="number" hidden disabled  ng-model="LastCast" class="form-control text-box text-center single-line has-feedback-right" />
+                            <span class="fa fa-money form-control-feedback right " aria-hidden="true"></span>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                    <button type="button" class="btn btn-primary" onclick="Getlist();">اضافة تحصيل جديد</button>
+
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>
+   
+</div>
+
+
+<script>
+
+
+</script>
+
+<script>
+    var x = document.getElementById("mySelect");
+    var carE = document.getElementById("CarList");
+    var empE = document.getElementById("EmpList");
+
+    function CarChanged() {
+        
+       
+        var dd = x.selectedIndex;
+        angular.element('#myctrl').scope().Tryit("1");
+        
+
+    }
+
+
+    function myFunction() {
+
+     
+
+      
+    if (x.selectedIndex >= 0) {
+        console.log(x.selectedIndex);
+       
+        if(x.selectedIndex == 1)
+        {
+     
+
+            
+            document.getElementById("CostForL").innerText = "اسم السيارة";
+            carE.classList.remove("hidden");
+          empE.classList.add("hidden");
+        }
+        else if (x.selectedIndex == 2)
+        {
+
+            document.getElementById("CostForL").innerText = "اسم الموظف";
+            empE.classList.remove("hidden");
+           carE.classList.add("hidden");
+        }
+    }
+}
+</script>

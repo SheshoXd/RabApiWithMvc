@@ -1,0 +1,517 @@
+﻿
+<!DOCTYPE html>
+<html lang="ar" ng-app="RabetsApp">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>حياة الارنب</title>
+    <!-- Bootstrap -->
+    <link href="~/Content/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="~/Content/vendors/fontawesome/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/Content/vendors/web-font/DroidNaskh-Regular.ttf">
+
+    <!-- NProgress -->
+    <link href="~/Content/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="~/Content/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <!-- bootstrap-progressbar -->
+    <link href="~/Content/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- JQVMap -->
+    <link href="~/Content/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet" />
+    <!-- Custom Theme Style -->
+    <link href="~/Content/build/css/custom-rtl.css" rel="stylesheet">
+
+    <link href="~/Content/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/mySt.css" rel="stylesheet" />
+</head>
+<body class="nav-md">
+    <div class="container body">
+        <div class="main_container">
+            @Html.Partial("_right_col")
+
+            <!-- top navigation -->
+            <div class="top_nav">
+                <div class="nav_menu">
+                    <nav>
+                        <div class="nav toggle">
+                            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                        </div>
+                        <ul class="nav navbar-nav navbar-left">
+                            <li class="">
+                                <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <img src="~/Content/images/img.jpg" alt="">محمد رضا
+                                    <span class=" fa fa-angle-down"></span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-usermenu pull-left">
+                                    <li><a href="javascript:;"> پروفایل</a></li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <span class="badge bg-red pull-left">50%</span>
+                                            <span>تنظیمات</span>
+                                        </a>
+                                    </li>
+                                    <li><a href="javascript:;">کمک</a></li>
+                                    <li><a href="login.html"><i class="fa fa-sign-out pull-left"></i> خروج</a></li>
+                                </ul>
+                            </li>
+
+                            @Html.Partial("PrintSessions")
+
+                            <li role="presentation" class="dropdown">
+                                <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-envelope-o"></i>
+                                    <span class="badge bg-green">6</span>
+                                </a>
+                                <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                                    <li>
+                                        <a>
+                                            <span class="image"><img src="~/Content/images/img.jpg" alt="Profile Image" /></span>
+                                            <span>
+                                                <span>محمد رضا پازوکی</span>
+                                                <span class="time">3 دقیقه پیش</span>
+                                            </span>
+                                            <span class="message">
+                                                آخرین مطالب و اخبار را در اینجا می بینید. ادامه مطلبContent.
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            <span class="image"><img src="~/Content/images/img.jpg" alt="Profile Image" /></span>
+                                            <span>
+                                                <span>محمد رضا پازوکی</span>
+                                                <span class="time">3 دقیقه پیش</span>
+                                            </span>
+                                            <span class="message">
+                                                مطالب مرتبط را در اینجا قرار خواهیم داد برای اطلاعات بیشتر. ادامه مطلبContent.
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            <span class="image"><img src="~/Content/images/img.jpg" alt="Profile Image" /></span>
+                                            <span>
+                                                <span>محمد موسائی</span>
+                                                <span class="time">3 دقیقه پیش</span>
+                                            </span>
+                                            <span class="message">
+                                                مطالب مرتبط را در اینجا قرار خواهیم داد برای اطلاعات بیشتر. ادامه مطلبContent.
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            <span class="image"><img src="~/Content/images/img.jpg" alt="Profile Image" /></span>
+                                            <span>
+                                                <span>مجید محجوب</span>
+                                                <span class="time">3 دقیقه پیش</span>
+                                            </span>
+                                            <span class="message">
+                                                مطالب مرتبط را در اینجا قرار خواهیم داد برای اطلاعات بیشتر. ادامه مطلبContent.
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <div class="text-center">
+                                            <a>
+                                                <strong>مشاهده سایر موارد</strong>
+                                                <i class="fa fa-angle-right"></i>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- /top navigation -->
+            <!-- page content -->
+            <div class="left_col" role="main">
+                @RenderBody()
+
+            </div>
+            <footer>
+                <div class="pull-right">
+                    حقوق النشر محفوظه للشركه ايت بيت للبرمجيات
+                </div>
+                <div class="clearfix"></div>
+            </footer>
+            <!-- /footer content -->
+        </div>
+    </div>
+
+    <!-- angular.js -->
+    <!-- ================================================== -->
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.js"></script>*@
+    <script src="~/Content/Scripts/jquery-3.1.0.js"></script>
+    <script src="~/Content/Scripts/jquery-3.1.0.min.js"></script>
+    <script src="~/Content/Scripts/angular.js"></script>
+    <script src="~/Content/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/ui-grid.min.js"></script>
+    <script src="~/Scripts/ui-grid.js"></script>
+    <script src="~/Content/Scripts/angular-route.js"></script>
+    <script src="~/Content/Scripts/angular-route.min.js"></script>
+    @*<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>*@
+    <script src="~/Content/Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
+    <script src="~/Content/Scripts/angular-ui/ui-bootstrap-tpls.js"></script>
+    <!-- RabetsApp.js -->
+    <!--  ================================================== -->
+    <script src="~/Content/app/RabetsApp.js"></script>
+    <script src="~/Content/app/appConfig.js"></script>
+    <script src="~/Content/app/DirectivesController/datepickerPopupController.js"></script>
+
+    <!-- itemController -->
+    <!--  ================================================== -->
+    <script src="~/Content/app/itemController/itemController.js"></script>
+    <script src="~/Content/app/itemController/itemService.js"></script>.
+
+    <!-- poController.js -->
+    <!--  ================================================== -->
+    <script src="~/Content/app/poController/poController.js"></script>
+    <script src="~/Content/app/poController/poFormController.js"></script>
+
+    <script src="~/Content/app/poController/poService.js"></script>
+
+    <!-- soController.js -->
+    <!--  ================================================== -->
+    <script src="~/Content/app/soController/soService.js"></script>
+
+    <script src="~/Content/app/soController/soLandController.js"></script>
+    <script src="~/Content/app/soController/soInsertController.js"></script>
+    <script src="~/Content/app/soController/soEditController.js"></script>
+    <script src="~/Content/app/soController/soFormController.js"></script>
+    <!--suppController.js -->
+    <!--  ================================================== -->
+    <script src="~/Content/app/suppController/suppController.js"></script>
+    <script src="~/Content/app/suppController/suppService.js"></script>
+    <!-- CastodyController.js -->
+    <!--  ================================================== -->
+    <script src="~/Content/app/CastodyController/CastodyController.js"></script>
+    <script src="~/Content/app/CastodyController/CastodyService.js"></script>
+
+    <!--clntController.js -->
+    <!--  ================================================== -->
+    <script src="~/Content/app/clntController/clntLandController.js"></script>
+    <script src="~/Content/app/clntController/clntAccController.js"></script>
+    <script src="~/Content/app/clntController/clntService.js"></script>
+    <script src="~/Content/app/clntController/clntInsertController.js"></script>
+    <!--VaucherController.js -->
+    <!--  ================================================== -->
+    <script src="~/Content/app/VaucherController/VaucherLandController.js"></script>
+    <script src="~/Content/app/VaucherController/VaucherSerivers.js"></script>
+
+    <!--UtilitiesController.js -->
+    <!--  ================================================== -->
+    <script src="~/Content/app/UtilitiesController/UtilitiesService.js"></script>
+    <script src="~/Content/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="~/Content/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="~/Content/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="~/Content/vendors/nprogress/nprogress.js"></script>
+    <!-- Chart.js -->
+    <script src="~/Content/vendors/Chart.js/dist/Chart.min.js"></script>
+    <!-- gauge.js -->
+    <script src="~/Content/vendors/gauge.js/dist/gauge.min.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="~/Content/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- iCheck -->
+    <script src="~/Content/vendors/iCheck/icheck.min.js"></script>
+
+    <!-- Skycons -->
+    <script src="~/Content/vendors/skycons/skycons.js"></script>
+
+    <!-- bootstrap-daterangepicker -->
+    <script src="~/Content/js/moment/moment.min.js"></script>
+    <script src="~/Content/js/datepicker/daterangepicker.js"></script>
+    <!-- bootstrap-wysiwyg -->
+    <script src="~/Content/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
+    <script src="~/Content/vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
+    <script src="~/Content/vendors/google-code-prettify/src/prettify.js"></script>
+    <!-- jQuery Tags Input -->
+    <script src="~/Content/vendors/jquery.tagsinput/src/jquery.tagsinput.js"></script>
+    <!-- Switchery -->
+    <script src="~/Content/vendors/switchery/dist/switchery.min.js"></script>
+    <!-- Select2 -->
+    <script src="~/Content/vendors/select2/dist/js/select2.full.min.js"></script>
+    <!-- Parsley -->
+    <script src="~/Content/vendors/parsleyjs/dist/parsley.min.js"></script>
+    <!-- Autosize -->
+    <script src="~/Content/vendors/autosize/dist/autosize.min.js"></script>
+    <!-- jQuery autocomplete -->
+    <script src="~/Content/vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"></script>
+    <!-- starrr -->
+    <script src="~/Content/vendors/starrr/dist/starrr.js"></script>
+    <!-- Custom Theme Scripts -->
+    <script src="~/Content/build/js/custom.min.js"></script>
+
+    <!-- Datatables -->
+
+    <script src="~/Content/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="~/Content/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="~/Content/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/Content/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="~/Content/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="~/Content/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/Content/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="~/Content/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="~/Content/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="~/Content/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/Content/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="~/Content/vendors/datatables.net-scroller/js/datatables.scroller.min.js"></script>
+    <script src="~/Content/vendors/jszip/dist/jszip.min.js"></script>
+    <script src="~/Content/vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="~/Content/vendors/pdfmake/build/vfs_fonts.js"></script>
+    <script src="~/Content/vendors/autosize/dist/autosize.min.js"></script>
+    <!-- Datatables -->
+    <!-- bootstrap-daterangepicker -->
+    <script src="~/Content/js/moment/moment.min.js"></script>
+    <script src="~/Content/js/datepicker/daterangepicker.js"></script>
+
+    <!-- bootstrap-daterangepicker -->
+
+    <script>
+        $(document).ready(function () {
+
+            $('#single_cal4').daterangepicker({
+                singleDatePicker: true,
+                calender_style: "picker_4"
+            }, function (start, end, label) {
+                console.log(start.toISOString(), end.toISOString(), label);
+            });
+            $('#single_cal5').daterangepicker({
+                singleDatePicker: true,
+                calender_style: "picker_4"
+            }, function (start, end, label) {
+                console.log(start.toISOString(), end.toISOString(), label);
+            });
+        });
+    </script>
+
+    <!-- /bootstrap-daterangepicker -->
+    <!-- /Skycons -->
+    <script>
+        $(document).ready(function () {
+            var icons = new Skycons({
+                "color": "#73879C"
+            }),
+                list = [
+                    "clear-day", "clear-night", "partly-cloudy-day",
+                    "partly-cloudy-night", "cloudy", "rain", "sleet", "snow", "wind",
+                    "fog"
+                ],
+                i;
+
+            for (i = list.length; i--;)
+                icons.set(list[i], list[i]);
+
+            icons.play();
+        });
+    </script>
+    <!-- /Skycons -->
+    <!-- bootstrap-wysiwyg -->
+    <script>
+        $(document).ready(function () {
+            function initToolbarBootstrapBindings() {
+                var fonts = ['Serif', 'Sans', 'Arial', 'Arial Black', 'Courier',
+                    'Courier New', 'Comic Sans MS', 'Helvetica', 'Impact', 'Lucida Grande', 'Lucida Sans', 'Tahoma', 'Times',
+                    'Times New Roman', 'Verdana'
+                ],
+                    fontTarget = $('[title=Font]').siblings('.dropdown-menu');
+                $.each(fonts, function (idx, fontName) {
+                    fontTarget.append($('<li><a data-edit="fontName ' + fontName + '" style="font-family:\'' + fontName + '\'">' + fontName + '</a></li>'));
+                });
+                $('a[title]').tooltip({
+                    container: 'body'
+                });
+                $('.dropdown-menu input').click(function () {
+                    return false;
+                })
+                    .change(function () {
+                        $(this).parent('.dropdown-menu').siblings('.dropdown-toggle').dropdown('toggle');
+                    })
+                    .keydown('esc', function () {
+                        this.value = '';
+                        $(this).change();
+                    });
+
+                $('[data-role=magic-overlay]').each(function () {
+                    var overlay = $(this),
+                        target = $(overlay.data('target'));
+                    overlay.css('opacity', 0).css('position', 'absolute').offset(target.offset()).width(target.outerWidth()).height(target.outerHeight());
+                });
+
+                if ("onwebkitspeechchange" in document.createElement("input")) {
+                    var editorOffset = $('#editor').offset();
+
+                    $('.voiceBtn').css('position', 'absolute').offset({
+                        top: editorOffset.top,
+                        left: editorOffset.left + $('#editor').innerWidth() - 35
+                    });
+                } else {
+                    $('.voiceBtn').hide();
+                }
+            }
+
+            function showErrorAlert(reason, detail) {
+                var msg = '';
+                if (reason === 'unsupported-file-type') {
+                    msg = "Unsupported format " + detail;
+                } else {
+                    console.log("error uploading file", reason, detail);
+                }
+                $('<div class="alert"> <button type="button" class="close" data-dismiss="alert">&times;</button>' +
+                    '<strong>File upload error</strong> ' + msg + ' </div>').prependTo('#alerts');
+            }
+
+            initToolbarBootstrapBindings();
+
+            $('#editor').wysiwyg({
+                fileUploadError: showErrorAlert
+            });
+
+            window.prettyPrint;
+            prettyPrint();
+        });
+    </script>
+    <!-- /bootstrap-wysiwyg -->
+    <!-- Select2 -->
+    <script>
+        $(document).ready(function () {
+            $(".select2_single").select2({
+                placeholder: "Select a state",
+                allowClear: true
+            });
+            $(".select2_group").select2({});
+            $(".select2_multiple").select2({
+                maximumSelectionLength: 4,
+                placeholder: "With Max Selection limit 4",
+                allowClear: true
+            });
+        });
+    </script>
+    <!-- /Select2 -->
+    <!-- jQuery Tags Input -->
+    <script>
+        function onAddTag(tag) {
+            alert("Added a tag: " + tag);
+        }
+
+        function onRemoveTag(tag) {
+            alert("Removed a tag: " + tag);
+        }
+
+        function onChangeTag(input, tag) {
+            alert("Changed a tag: " + tag);
+        }
+
+        $(document).ready(function () {
+            $('#tags_1').tagsInput({
+                width: 'auto'
+            });
+        });
+    </script>
+    <!-- /jQuery Tags Input -->
+    <!-- Parsley -->
+    <script>
+        $(document).ready(function () {
+            $.listen('parsley:field:validate', function () {
+                validateFront();
+            });
+            $('#demo-form .btn').on('click', function () {
+                $('#demo-form').parsley().validate();
+                validateFront();
+            });
+            var validateFront = function () {
+                if (true === $('#demo-form').parsley().isValid()) {
+                    $('.bs-callout-info').removeClass('hidden');
+                    $('.bs-callout-warning').addClass('hidden');
+                } else {
+                    $('.bs-callout-info').addClass('hidden');
+                    $('.bs-callout-warning').removeClass('hidden');
+                }
+            };
+        });
+
+        $(document).ready(function () {
+            $.listen('parsley:field:validate', function () {
+                validateFront();
+            });
+            $('#demo-form2 .btn').on('click', function () {
+                $('#demo-form2').parsley().validate();
+                validateFront();
+            });
+            var validateFront = function () {
+                if (true === $('#demo-form2').parsley().isValid()) {
+                    $('.bs-callout-info').removeClass('hidden');
+                    $('.bs-callout-warning').addClass('hidden');
+                } else {
+                    $('.bs-callout-info').addClass('hidden');
+                    $('.bs-callout-warning').removeClass('hidden');
+                }
+            };
+        });
+        try {
+            hljs.initHighlightingOnLoad();
+        } catch (err) { }
+    </script>
+    <!-- /Parsley -->
+    <!-- Autosize -->
+    <script>
+        $(document).ready(function () {
+            autosize($('.resizable_textarea'));
+        });
+    </script>
+    <!-- /Autosize -->
+    <!-- jQuery autocomplete -->
+    <script>
+        $(document).ready(function () {
+            var countries = { AD: "Andorra", A2: "Andorra Test", AE: "United Arab Emirates", AF: "Afghanistan", AG: "Antigua and Barbuda", AI: "Anguilla", AL: "Albania", AM: "Armenia", AN: "Netherlands Antilles", AO: "Angola", AQ: "Antarctica", AR: "Argentina", AS: "American Samoa", AT: "Austria", AU: "Australia", AW: "Aruba", AX: "Åland Islands", AZ: "Azerbaijan", BA: "Bosnia and Herzegovina", BB: "Barbados", BD: "Bangladesh", BE: "Belgium", BF: "Burkina Faso", BG: "Bulgaria", BH: "Bahrain", BI: "Burundi", BJ: "Benin", BL: "Saint Barthélemy", BM: "Bermuda", BN: "Brunei", BO: "Bolivia", BQ: "British Antarctic Territory", BR: "Brazil", BS: "Bahamas", BT: "Bhutan", BV: "Bouvet Island", BW: "Botswana", BY: "Belarus", BZ: "Belize", CA: "Canada", CC: "Cocos [Keeling] Islands", CD: "Congo - Kinshasa", CF: "Central African Republic", CG: "Congo - Brazzaville", CH: "Switzerland", CI: "Côte d’Ivoire", CK: "Cook Islands", CL: "Chile", CM: "Cameroon", CN: "China", CO: "Colombia", CR: "Costa Rica", CS: "Serbia and Montenegro", CT: "Canton and Enderbury Islands", CU: "Cuba", CV: "Cape Verde", CX: "Christmas Island", CY: "Cyprus", CZ: "Czech Republic", DD: "East Germany", DE: "Germany", DJ: "Djibouti", DK: "Denmark", DM: "Dominica", DO: "Dominican Republic", DZ: "Algeria", EC: "Ecuador", EE: "Estonia", EG: "Egypt", EH: "Western Sahara", ER: "Eritrea", ES: "Spain", ET: "Ethiopia", FI: "Finland", FJ: "Fiji", FK: "Falkland Islands", FM: "Micronesia", FO: "Faroe Islands", FQ: "French Southern and Antarctic Territories", FR: "France", FX: "Metropolitan France", GA: "Gabon", GB: "United Kingdom", GD: "Grenada", GE: "Georgia", GF: "French Guiana", GG: "Guernsey", GH: "Ghana", GI: "Gibraltar", GL: "Greenland", GM: "Gambia", GN: "Guinea", GP: "Guadeloupe", GQ: "Equatorial Guinea", GR: "Greece", GS: "South Georgia and the South Sandwich Islands", GT: "Guatemala", GU: "Guam", GW: "Guinea-Bissau", GY: "Guyana", HK: "Hong Kong SAR China", HM: "Heard Island and McDonald Islands", HN: "Honduras", HR: "Croatia", HT: "Haiti", HU: "Hungary", ID: "Indonesia", IE: "Ireland", IL: "Israel", IM: "Isle of Man", IN: "India", IO: "British Indian Ocean Territory", IQ: "Iraq", IR: "Iran", IS: "Iceland", IT: "Italy", JE: "Jersey", JM: "Jamaica", JO: "Jordan", JP: "Japan", JT: "Johnston Island", KE: "Kenya", KG: "Kyrgyzstan", KH: "Cambodia", KI: "Kiribati", KM: "Comoros", KN: "Saint Kitts and Nevis", KP: "North Korea", KR: "South Korea", KW: "Kuwait", KY: "Cayman Islands", KZ: "Kazakhstan", LA: "Laos", LB: "Lebanon", LC: "Saint Lucia", LI: "Liechtenstein", LK: "Sri Lanka", LR: "Liberia", LS: "Lesotho", LT: "Lithuania", LU: "Luxembourg", LV: "Latvia", LY: "Libya", MA: "Morocco", MC: "Monaco", MD: "Moldova", ME: "Montenegro", MF: "Saint Martin", MG: "Madagascar", MH: "Marshall Islands", MI: "Midway Islands", MK: "Macedonia", ML: "Mali", MM: "Myanmar [Burma]", MN: "Mongolia", MO: "Macau SAR China", MP: "Northern Mariana Islands", MQ: "Martinique", MR: "Mauritania", MS: "Montserrat", MT: "Malta", MU: "Mauritius", MV: "Maldives", MW: "Malawi", MX: "Mexico", MY: "Malaysia", MZ: "Mozambique", NA: "Namibia", NC: "New Caledonia", NE: "Niger", NF: "Norfolk Island", NG: "Nigeria", NI: "Nicaragua", NL: "Netherlands", NO: "Norway", NP: "Nepal", NQ: "Dronning Maud Land", NR: "Nauru", NT: "Neutral Zone", NU: "Niue", NZ: "New Zealand", OM: "Oman", PA: "Panama", PC: "Pacific Islands Trust Territory", PE: "Peru", PF: "French Polynesia", PG: "Papua New Guinea", PH: "Philippines", PK: "Pakistan", PL: "Poland", PM: "Saint Pierre and Miquelon", PN: "Pitcairn Islands", PR: "Puerto Rico", PS: "Palestinian Territories", PT: "Portugal", PU: "U.S. Miscellaneous Pacific Islands", PW: "Palau", PY: "Paraguay", PZ: "Panama Canal Zone", QA: "Qatar", RE: "Réunion", RO: "Romania", RS: "Serbia", RU: "Russia", RW: "Rwanda", SA: "Saudi Arabia", SB: "Solomon Islands", SC: "Seychelles", SD: "Sudan", SE: "Sweden", SG: "Singapore", SH: "Saint Helena", SI: "Slovenia", SJ: "Svalbard and Jan Mayen", SK: "Slovakia", SL: "Sierra Leone", SM: "San Marino", SN: "Senegal", SO: "Somalia", SR: "Suriname", ST: "São Tomé and Príncipe", SU: "Union of Soviet Socialist Republics", SV: "El Salvador", SY: "Syria", SZ: "Swaziland", TC: "Turks and Caicos Islands", TD: "Chad", TF: "French Southern Territories", TG: "Togo", TH: "Thailand", TJ: "Tajikistan", TK: "Tokelau", TL: "Timor-Leste", TM: "Turkmenistan", TN: "Tunisia", TO: "Tonga", TR: "Turkey", TT: "Trinidad and Tobago", TV: "Tuvalu", TW: "Taiwan", TZ: "Tanzania", UA: "Ukraine", UG: "Uganda", UM: "U.S. Minor Outlying Islands", US: "United States", UY: "Uruguay", UZ: "Uzbekistan", VA: "Vatican City", VC: "Saint Vincent and the Grenadines", VD: "North Vietnam", VE: "Venezuela", VG: "British Virgin Islands", VI: "U.S. Virgin Islands", VN: "Vietnam", VU: "Vanuatu", WF: "Wallis and Futuna", WK: "Wake Island", WS: "Samoa", YD: "People's Democratic Republic of Yemen", YE: "Yemen", YT: "Mayotte", ZA: "South Africa", ZM: "Zambia", ZW: "Zimbabwe", ZZ: "Unknown or Invalid Region" };
+
+            var countriesArray = $.map(countries, function (value, key) {
+                return {
+                    value: value,
+                    data: key
+                };
+            });
+
+            // initialize autocomplete with custom appendTo
+            $('#autocomplete-custom-append').autocomplete({
+                lookup: countriesArray
+            });
+        });
+    </script>
+    <!-- /jQuery autocomplete -->
+    <!-- Starrr -->
+    <script>
+        $(document).ready(function () {
+            $(".stars").starrr();
+
+            $('.stars-existing').starrr({
+                rating: 4
+            });
+
+            $('.stars').on('starrr:change', function (e, value) {
+                $('.stars-count').html(value);
+            });
+
+            $('.stars-existing').on('starrr:change', function (e, value) {
+                $('.stars-count-existing').html(value);
+            });
+        });
+    </script>
+    <!-- /Starrr -->
+
+</body>
+</html>
+

@@ -1,0 +1,68 @@
+﻿@model RabApiWithMvc.Models.Item
+
+@{
+    ViewBag.Title = "Edit";
+}
+<div class="page">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>تعديل على  @Model.ItemName</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.ItemId)
+
+            <div class="form-group">
+                <div class="control-label col-lg-2 col-md-2 col-xs-2">اسم الصنف</div>
+                <div class="col-lg-4">
+                    @Html.EditorFor(model => model.ItemName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ItemName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="control-label col-lg-2 col-md-2 col-xs-2">الوصف</div>
+                <div class="col-lg-4 col-md-4 col-xs-10">
+                    @Html.TextAreaFor(model => model.ItemDescription, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ItemDescription, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="control-label col-lg-2 col-md-2 col-xs-2">السعر</div>
+
+                <div class="col-lg-4 col-md-4 col-xs-10">
+                    @Html.EditorFor(model => model.AverageCost, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.AverageCost, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="control-label col-lg-2 col-md-2 col-xs-2">الوحدة</div>
+
+                <div class="col-lg-4 col-md-4 col-xs-10">
+                    @Html.DropDownList("UintId", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.UintId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="control-label col-lg-2 col-md-2 col-xs-2">وزن الهلاك فى اليوم على  الوحدة</div>
+
+                <div class="col-lg-4 col-md-4 col-xs-10">
+                    @Html.EditorFor(model => model.itemDepr, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.AverageCost, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <input type="submit" value="حفظ" class="btn btn-default" />
+                    <a ng-href="#/items" class="btn btn-danger">الفاء</a>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+        </div>
+    }
+
+</div>

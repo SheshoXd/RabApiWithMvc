@@ -1,0 +1,98 @@
+﻿@model RabApiWithMvc.Models.Item
+
+@{
+    ViewBag.Title = "Create";
+
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+
+    <div class="row">
+
+        <div class="col-md-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>صفة اضافة بيانات صنف جديد</h2>
+
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <br />
+                    <form class="form-horizontal form-label-right">
+                        <div class="form-horizontal">
+                            <h4>Item</h4>
+                            <hr />
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="form-group">
+                                <label class="control-label col-lg-2" for="first-name">
+                                    اسم الصنف <span class="required">*</span>
+                                </label>
+                                <div class="col-lg-4">
+                                    @Html.EditorFor(model => model.ItemName, new { htmlAttributes = new { @class = "form-control", id = "first-name" } })
+                                    @Html.ValidationMessageFor(model => model.ItemName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-lg-2" for="last-name">
+                                    وصف الصنف <span class="required">*</span>
+                                </label>
+                                <div class="col-lg-4">
+                                    @Html.TextAreaFor(model => model.ItemDescription, new { htmlAttributes = new { @class = "form-control", id = "last-name" } })
+                                    @Html.ValidationMessageFor(model => model.ItemDescription, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-lg-2" for="Price">
+                                    السعر <span class="required">*</span>
+                                </label>
+                                <div class="col-lg-4">
+                                    @Html.EditorFor(model => model.AverageCost, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.AverageCost, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="control-label col-lg-2 col-md-2 col-xs-2">الوحدة</div>
+
+                                <div class="col-lg-4 col-md-4 col-xs-10">
+                                    @Html.DropDownList("UintId", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.UintId, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="control-label col-md-2">وزن الهلاك </div>
+
+                                <div class="col-lg-4">
+                                    @Html.EditorFor(model => model.itemDepr, new { htmlAttributes = new { @class = "form-control" ,title= "اذا كان الهلاك فى على طن ف اليوم 100 كيلو  ادخل  100", palceholder="فى اليوم على الوحدة مثلا  10  = 10جرام /اليوم من الكيلو" } })
+                                    @Html.ValidationMessageFor(model => model.AverageCost, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="اضافة" class="btn btn-default" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-9 col-lg-9 col-xs-12 col-md-offset-3">
+                                <button type="submit" class="btn btn-primary">Cancel</button>
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+}
+

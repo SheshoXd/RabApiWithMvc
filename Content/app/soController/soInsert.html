@@ -1,0 +1,282 @@
+﻿
+<div class="row " ng-controller="soInsertController">
+
+    <div class="col-md-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>امر بيع <small>طلب  بيع اصناف الى عميل</small></h2>
+                <ul class="nav navbar-left panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="#">Settings 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Settings 2</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <br />
+                <form class="form-horizontal form-label-left">
+
+                    <!--here my old elments-->
+                    <div class="row">
+                        <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                            <label>رقم امر البيع</label>
+                            <input value="{{newSOrdNum}}" disabled class="form-control">
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-12 form-group" for="soDate">
+                            <label>التاريخ</label>
+
+                            <input type="date" id="soDate" class="form-control" required="required" ng-model="OrderDate" />
+
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md-3 col-sm-3 col-xs-12  form-group">
+                            <label for="ClinteName">اسم العميل (المحل) <span class="required">*</span></label>
+                            <div class="input-group">
+                                <span class="input-group-btn">
+                                    <button type="button" data-toggle="modal" data-target="#my2Modal" class="btn btn-primary">بحث</button>
+                                </span>
+                                <input type="text" id="ClinteName" value="{{so.Client.ClntName}}" ng-model="ClntName" required="required" class="form-control">
+
+                            </div>
+
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+                            <!--<label>طريقة الدفع </label>
+
+                            <select name="cashType" id="selectBox" ng-change="changeFunc()" ng-model=" paymanttype" class="form-control">
+                                <option value="0" ng-selected="true">نقدى</option>
+                                <option value="1">اجل</option>
+                            </select>-->
+                            <label>الاجمالى</label>
+
+                            <input value="{{TotalPrice}}" disabled ng-model="TotalPrice" class="form-control" required>
+
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 col-sm-3 col-xs-12 form-group">
+
+                        </div>
+                        <div style="display: none" class="col-md-3 col-sm-3 col-xs-12 form-group" ng-hide="DEpitFild">
+                            <label>المدفوع</label>
+
+                            <input value="{{getTotal()-Creditor}}" ng-model="Debit" class="form-control">
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 col-sm-3 col-xs-12 form-group" ng-hide="DEpitFild">
+                            <label>المدفوع</label>
+
+                            <input value="{{Creditor}}" ng-model="Creditor" class="form-control" required>
+
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-12 form-group" ng-hide="DEpitFild" for="toPrice">
+                            <label>الباقى</label>
+
+                            <input id="toPrice" value="{{TotalPrice - Creditor}}" disabled class="form-control" required>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="ln_solid"></div>
+                        <!-- /.col-lg-6 (nested) -->
+                        <div class="col-lg-3">
+
+                            <button type="submit" ng-click="insertso()" class="btn btn-success">حفظ </button>
+                            <a ng-href="#/sos" class="btn btn-primary">الغاء</a>
+
+                        </div>
+                        <!-- /.col-lg-6 (nested) -->
+                    </div>
+                </form>
+            </div>
+            <!--to here my old element-->
+
+        </div>
+    </div>
+
+    <div class="col-lg-9">
+        <div class="panel panel-default col-lg-pull-8">
+            <div class="panel-heading">
+                الاصناف
+                <!-- Button trigger modal -->
+                <button class="btn btn-primary icon-bar" data-toggle="modal" data-target="#myModal">
+                    +
+                </button>
+
+            </div>
+
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <table id="datatable" ng-mousemove="ChekAvlib(d.CaseWight - d.WightEmpty,d.AvilQty);" class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+
+                            <th class="col-sm-1">اسم الصنف</th>
+
+                            <th class="col-sm-1"> القوائم</th>
+                            <th class="col-sm-1">عدد القوائم</th>
+
+                            <th class="col-sm-1">وزن الفارغ</th>
+                            <th class="col-sm-1">الوزن الصافى</th>
+
+                            <th class="col-sm-1">السعر</th>
+                            <th class="col-sm-1">الاجمالى</th>
+
+                        </tr>
+                    </thead>
+                    <tbody ng-repeat="d in soDetailsList">
+
+                        <tr ng-class-odd="'odd'" ng-class-even="'even'">
+
+                            {{d.ItemId}}
+                            <td style="width: 130px">{{d.myItemName}}</td>
+
+                            <td class="col-sm-1"><input style="width: 90px" value="{{d.CaseWight}}" ng-model="d.CaseWight" /></td>
+                            <td class="col-sm-1"><input style="width:90px" value="{{d.CaseNumber}}" ng-model="d.CaseNumber" /></td>
+                            <td><input style="width: 90px"  value="{{d.CaseNumber*8}}" ng- ng-model="d.WightEmpty" ng-mousemove="ChekAvlib(d.CaseWight - d.WightEmpty,d.AvilQty);" ng-change="ChekAvlib(d.CaseWight - d.WightEmpty,d.AvilQty);" /></td>
+                            <td>
+                                <input style="width: 90px" disabled value="{{d.CaseWight - d.WightEmpty}}" />
+                            </td>
+                            <td><input style="width: 90px" value="{{d.ItemPrice}}" ng-model="d.ItemPrice" /></td>
+                            <td>{{(d.CaseWight - d.WightEmpty ) * d.ItemPrice}}</td>
+
+                        </tr>
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+
+                            <td>عد الاصناف</td>
+                            <td>{{rowCount}}</td>
+                            <td></td>
+
+                            <td></td>
+                            <td></td>
+
+                            <td> اجمالى سعر الاصناف</td>
+                            <td>{{TotalPrice}}</td>
+                        </tr>
+                    </tfoot>
+                </table>
+
+            </div>
+            <!-- /.panel-body -->
+        </div>
+
+    </div>
+
+    <!-- /.table-responsive -->
+    <!-- Modal    items -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">الاصناف</h4>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-striped table-bordered table-hover col-lg-pull-3" id="dataTables-example">
+                        <thead>
+                            <tr>
+                                <th class="col-sm-1"></th>
+                                <th class="right center col-sm-1" dir="rtl">رقم الصنف</th>
+                                <th class="col-sm-2 ">اسم الصنف</th>
+                                <th class="col-sm-2 ">المتاح بالمخازن </th>
+                                <th class="col-sm-1">السعر</th>
+                                <th class="col-sm-1"><input name="ChkAll" ng-model="option.selected" ng-change="optionToggled()" type="checkbox"></th>
+
+                            </tr>
+                        </thead>
+                        <tbody ng-repeat="it in items">
+
+                            <tr ng-class-odd="'odd'" ng-class-even="'even'">
+
+                                <td><input type="button" ng-click="addsod(it.ItemId,it.ItemName,it.AverageCost ,it.AviQty)" value="+" /></td>
+                                <td> {{it.ItemId}} </td>
+                                <td>{{it.ItemName}}</td>
+                                <td>{{it.AviQty}}</td>
+                                
+                                <td>{{it.AverageCost}}</td>
+                                <td dir="ltr"> <input name="chkBox{{$index}}" ng-click="toggleAll()" ng-model="isAllSelected" type="checkbox"></td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">الغاء</button>
+                    <button type="button" class="btn btn-primary">ختيار</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+    <!-- Modal    suppliers -->
+    <div class="modal fade" id="my2Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">العملاء</h4>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-striped table-bordered table-hover col-lg-pull-3" id="dataTables-example">
+                        <thead>
+                            <tr>
+                                <th class="right center col-sm-1">ختار</th>
+                                <th class="right center col-sm-1">ارقم العميل</th>
+
+                                <th class="col-sm-1">اسم العميل (المحل)</th>
+
+                            </tr>
+                        </thead>
+                        <tbody ng-repeat="clnt in  Getclnt">
+
+                               <tr ng-class-odd="'odd'" ng-class-even="'even'">
+
+                                <td><input type="button" data-dismiss="modal" ng-click="showClints(clnt.ClntId ,clnt.ClntName)" value="شراء من" /></td>
+                                <td ng-model="so.ClntId">{{clnt.ClntId}}</td>
+
+                                <td ng-model="so.Client.ClntName">{{clnt.ClntName}}</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">الغاء</button>
+                   
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+</div>

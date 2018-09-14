@@ -1,0 +1,66 @@
+﻿@model RabApiWithMvc.Models.SuppliersAccount
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SuppliersAccount</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Supplier.SuppName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Supplier.SuppName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SuppCreditor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SuppCreditor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SuppDebit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SuppDebit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsDeleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsDeleted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateCreated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateCreated)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SuppAccId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

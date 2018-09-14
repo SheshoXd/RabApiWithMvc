@@ -1,0 +1,63 @@
+﻿@model IEnumerable<RabApiWithMvc.Models.SuppliersAccount>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Supplier.SuppName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SuppCreditor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SuppDebit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsDeleted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateCreated)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Supplier.SuppName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SuppCreditor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SuppDebit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsDeleted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateCreated)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SuppAccId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SuppAccId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SuppAccId })
+        </td>
+    </tr>
+}
+
+</table>

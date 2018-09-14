@@ -1,0 +1,138 @@
+﻿@model IEnumerable<RabApiWithMvc.Models.Client>
+
+@{
+    ViewBag.Title = "Index";
+   
+}
+
+<div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>العملاء <small>المحلات</small></h2>
+            <div class="clearfix"></div>
+        </div>
+        @*<div class="x_content">*@
+
+        <table id="datatable-responsive" class="table left tabs-left table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th style="width:7%">
+                       رقم
+                    </th>
+                    <th>
+                        اسم :المحل \صاحب المحل
+                    </th>
+                    <th>
+                      التليفون
+                    </th>
+                    <th>
+                      العنوان
+                    </th>
+                    <th>
+                        المنطقه
+                    </th>
+                    
+                    <th>
+                     المديونيه
+                    </th>
+                    <th>
+                       المتاح
+                    </th>
+                    <th>
+                        التفاصيل
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+             @foreach (var item in Model)
+             {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ClntId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ClntName) \ @Html.DisplayFor(modelItem => item.OwnerName)
+                    </td>
+                    <td>
+                       @Html.DisplayFor(modelItem => item.PhoneNo) 
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.fullAddress)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Area.Area1)
+                    </td>
+                   @{var vl ="";
+                     if (item.ClntMaxBalance == item.ClntBalance || item.ClntBalance < 0)
+                    { vl = "red"; }
+                    else if(item.ClntBalance > item.ClntMaxBalance)
+                     {
+                         vl = "green";
+                     }
+                    }
+                    <td class="@vl" >
+                        @Html.DisplayFor(modelItem => item.ClntBalance)
+                    </td>
+                    <td class="blue">
+                        @Html.DisplayFor(modelItem => item.ClntMaxBalance)
+                    </td>
+                    <td>
+                        <a ng-href="AClients/edit/@item.ClntId"><span class="btn btn-default">تعديل</span></a>
+                        <a ng-href="AClients/delete/@item.ClntId"><span class="btn delete-btn  btn-default">حدف من النظام</span></a>
+                    </td>
+                
+                </tr>
+             }
+            </tbody>
+
+        </table>
+    </div>
+</div>
+
+<!-- Datatables -->
+<script>
+      $(document).ready(function() {
+
+        TableManageButtons = function() {
+          "use strict";
+          return {
+            init: function() {
+              handleDataTableButtons();
+            }
+          };
+        }();
+
+        $('#datatable-responsive').DataTable();
+
+        $('#datatable-scroller').DataTable({
+          ajax: "js/datatables/json/scroller-demo.json",
+          deferRender: true,
+          scrollY: 380,
+          scrollCollapse: true,
+          scroller: true
+        });
+
+        $('#datatable-fixed-header').DataTable({
+          fixedHeader: true
+        });
+
+        var $datatable = $('#datatable-checkbox');
+
+        $datatable.dataTable({
+          'order': [[ 1, 'asc' ]],
+          'columnDefs': [
+            { orderable: false, targets: [0] }
+          ]
+        });
+        $datatable.on('draw.dt', function() {
+          $('input').iCheck({
+            checkboxClass: 'icheckbox_flat-green'
+          });
+        });
+
+        TableManageButtons.init();
+      });
+</script>
+<!-- /Datatables -->
+

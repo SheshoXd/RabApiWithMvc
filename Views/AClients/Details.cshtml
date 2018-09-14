@@ -1,0 +1,297 @@
+﻿@model RabApiWithMvc.Models.Client
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+
+<div>
+   
+    <hr />
+    @{
+        
+        var equl = Model.ClntDebit + Model.ClntCreditor;
+        
+    }
+    <div class="x_panel">
+        <div class="x_title">
+            <h2><small>حساب العميل رقم</small> @Model.ClntId </h2>
+            <ul class="nav navbar-right panel_toolbox">
+                <li>
+                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="#">Settings 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Settings 2</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="close-link"><i class="fa fa-close"></i></a>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <br>
+            <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">اسم العميل </label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type="text" class="form-control" disabled="disabled" placeholder="@Model.ClntName / @Model.OwnerName">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">العنوان </label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type="text" class="form-control" disabled="disabled" placeholder="@Model.fullAddress">
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="ln_solid"></div>
+
+                <h2> الارصده<small>    له \ عليه</small> </h2>
+
+                <div class="form-group">
+                    <div class="col-md-5">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">رصيد له</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type="text" class="form-control" disabled="disabled" placeholder="@Model.ClntCreditor.Value.ToString("0.00")">
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">رصيد عليه </label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type="text" class="form-control" disabled="disabled" placeholder="@Model.ClntDebit.Value.ToString("0.00")">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">= </label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <input type="text" class="form-control" disabled="disabled" placeholder="@equl.Value.ToString("0.00")">
+                        </div>
+                    </div>
+                </div>
+                <div class="ln_solid"></div>
+
+                <div class="form-group">
+                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">اضافة تحصيل جديد</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>المبيعات له</h2>
+                <ul class="nav navbar-left panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="#">Settings 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Settings 2</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+
+                <table class="table table-striped left">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th class="navbar-right">التاريخ</th>
+                            <th class="nav-tabs-justified">السعر</th>
+                            <th class="">محول</th>
+</tr>
+                    </thead>
+                    <tbody>
+                        @{decimal totalSeals = 0; }
+                        @{
+                            foreach (var seals in Model.SaleOrders.Where(d=>d.PostingStats == 1))
+                            {
+                                var dt =seals.SlOrdDate.Value.ToShortDateString();
+                                totalSeals += seals.TotalPrice.Value; 
+                                var sg = "remove";
+                                if (seals.PostingStats == 1)
+                                {
+                                     sg = "ok";
+                                    
+                                }
+                                var pr = seals.TotalPrice.Value.ToString("0.00");
+                                <tr>
+                                    <th scope="row">@seals.SlOrdId</th>
+                                    <td>@dt</td>
+                                    <td>@pr</td>
+                                    <td> <span class="glyphicon glyphicon-@sg"></span>  </td>
+                                    
+                                    
+                                </tr>
+                            }
+
+                        }
+
+                    </tbody>
+                    <tfoot>
+
+                        <tr class="btn-success">
+                            <th scope="row" ></th>
+                            <td>اجمالى المبيعات</td>
+                            <td>@totalSeals.ToString("0.00") </td>
+                            <td></td>
+
+
+                        </tr>
+                    </tfoot>
+                </table>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>المدفوعات</h2>
+                <ul class="nav navbar-left panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="#">Settings 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Settings 2</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#/#</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Username</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            decimal pay=0; decimal notpay=0;
+                        }
+                        @foreach (var Vau in Model.Vauchers)
+                        {
+                            var btn = "success";
+                            var btnValue = "تم الدفع";
+                            if (Vau.VauStatus == false)
+                            {
+                                btn = "danger";
+                                btnValue = "تحصيل";
+                            
+                            }
+                            pay += Vau.PayAmount.GetValueOrDefault();
+                            notpay += Vau.VauAmount.GetValueOrDefault() - Vau.PayAmount.GetValueOrDefault();
+                            <tr>
+                                <td scope="row">@Vau.VauId /@Vau.SlOrdId     </td>
+                                <td>@Vau.VauDate.Value.ToShortDateString()</td>
+                                <td>@Vau.VauAmount</td>
+                                <td></td>
+                            </tr>
+                            
+                        }
+                        <tr></tr>
+
+                    </tbody>
+                  <tfoot>
+                      <tr class="btn-danger ">
+                          <td>المدفوع</td>
+                          <td>@pay</td>
+                          <td>الباقى</td>
+                          <td>@notpay</td>
+                      </tr>
+                      <tr>
+
+                        
+                      </tr>
+                  </tfoot>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+ 
+</div>
+<div class="center col-lg-12">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
+        @{ var next = Model.ClntId + 1;
+         var back = Model.ClntId - 1;
+        }
+        <a href="@next"><span class="glyphicon glyphicon-step-forward"></span>العميل التالى </a> |
+      
+        <a href="../../#/clnts"><span class="glyphicon glyphicon-list-alt"></span>كل العملاء</a> |
+        <a href="@back">العميل السابق <span class="glyphicon glyphicon-step-backward"></span></a>
+
+    </div>
+    <div class="col-lg-4"></div>
+  
+
+
+</div>
+
+ 
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel2">Modal title</h4>
+            </div>
+            <div class="modal-body">
+             
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,129 @@
+﻿
+<div class="col-md-3 right_col">
+    <div class="right_col scroll-view">
+        <div class="navbar nav_title" style="border: 0;">
+            <a href="#/home" class="site_title"><i class="fa fa-paw"></i> <span>حياة الارانب</span></a>
+        </div>
+        <div class="clearfix"></div>
+        <!-- menu profile quick info -->
+        <div class="profile">
+            <div class="profile_pic">
+                <img src="~/Content/images/img.jpg" alt="Content." class="img-circle profile_img">
+            </div>
+            <div class="profile_info">
+                <span>مرحبا</span>
+                <h2>م.محمد</h2>
+            </div>
+        </div>
+        <!-- /menu profile quick info -->
+        <br />
+        <!-- sidebar menu -->
+        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+            <div class="menu_section">
+                <h3>مدير</h3>
+                <ul class="nav side-menu">
+                    <li>
+                        <a><i class="fa fa-home"></i> الرئيسيه <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li ><a href="/ADashBord/DashBord">نظرة عامه</a></li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a><i class="fa fa-edit"></i> اوامر البيع <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="~/ASaleOrders/Create">امر بيع جديد</a></li>
+                            <li><a href="~/ASaleOrders">عرض اوامر البيع</a></li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a><i class="fa fa-desktop"></i> اومر الشراء <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="~/APurchaseOrders/Create">امر شراء جديد</a></li>
+                            <li><a href="~/APurchaseOrders">عرض اومر الشراء</a></li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a><i class="fa fa-table"></i> المخازن <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="~/AItems/Create">ادخل صنف جديد</a></li>
+                            <li><a href="~/AItems/index">الاصناف</a></li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a><i class="fa fa-bar-chart-o"></i> الموردين <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="~/ASuppliers/Create">ادخال مورد جديد</a></li>
+                            <li><a href="~/ASuppliers/Index">كل الموردين</a></li>
+                            @*<li><a href="~/#/AccSupp">حسابات الموردين</a></li>*@
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a><i class="fa fa-clone"></i>العملاء <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="~/AClients/Create">ادخال عميل جديد</a></li>
+                            <li><a href="~/AClients/Index">كل العملاء</a></li>
+                            @*<li><a href="~/#/clntsAcc">حسابات العملاء</a></li>*@
+                        </ul>
+                    </li>
+                    @*<li>
+                            <a><i class="fa fa-bug"></i> الحسابات <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                <li><a href="#/AccGL">الحسابات العامه</a></li>
+                                <li><a href="~/#/AccSupp">حسابات الموردين</a></li>
+                                <li><a href="~/#/clntsAcc">حسابات العملاء</a></li>
+                                <li><a href="~/#/Vauchers">ترحيل الفواتر </a></li>
+                                <li><a href="~/#/Vauchers">تحصيل الفواتر </a></li>
+                                <li><a href="~/#/Pyments">المصروفات</a></li>
+                                <li><a href="~/#/EmpDipets">العهد</a></li>
+                            </ul>
+                        </li>*@
+                </ul>
+            </div>
+            @*<div class="menu_section">
+                    <h3>النظام</h3>
+                    <ul class="nav side-menu">
+
+                        <li>
+                            <a><i class="fa fa-windows"></i> اعدادت المخازن <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                <li><a href="~/#/OpenBlance">فتح المخزن لاول مره</a></li>
+                                <li><a href="~/#/Uints">وحدات الاصناف</a></li>
+
+                            </ul>
+                        </li>
+                        <li>
+                            <a><i class="fa fa-sitemap"></i> المستخدمين <span class="fa fa-chevron-down"></span></a>
+                            <ul class="nav child_menu">
+                                <li><a href="~/#/emp">اضافة مستخدم جديد</a></li>
+                                <li><a href="~/#/emps">كل المستخدمين</a></li>
+                                <li><a href="~/#/ruls">صلاحيات</a></li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div>*@
+        </div>
+        <!-- /sidebar menu -->
+        <!-- /menu footer buttons -->
+        <div class="sidebar-footer hidden-small">
+            <a data-toggle="tooltip" data-placement="top" title="تنظیمات">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="Lock">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="Logout">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+            </a>
+        </div>
+        <!-- /menu footer buttons -->
+    </div>
+</div>

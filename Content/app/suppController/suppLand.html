@@ -1,0 +1,63 @@
+﻿    <!-- /.row -->
+<div class="row ">
+    <div class="col-lg-8">
+        <h1 class="page-header ">الموردين (المزرعه)</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<div class="row ">
+
+    <div class="col-lg-9">
+        <div class="panel panel-default col-lg-pull-8">
+            <div class="panel-heading">
+                DataTables Advanced Tables
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body" ng-controller="suppController" ng-init="initSuppLand()">
+                <table class="table table-striped table-bordered table-hover col-lg-pull-8" id="dataTables-example">
+                    <thead>
+                        <tr>
+                            <th class="right center col-sm-1" dir="rtl">رقم</th>
+                            <th class="col-sm-2">رقم</th>
+
+                            <th class="col-sm-2">اسم المورد</th>
+                            <th class="col-sm-2">رقم الحساب</th>
+                            <th class="col-sm-3">رقم الهاتف</th>
+                            <th class="col-sm-1">عرض</th>
+                        </tr>
+                    </thead>
+                    <tbody ng-repeat="d in GetSupp">
+
+                        <tr ng-class-odd="'odd'" ng-class-even="'even'">
+
+                            <td> {{d.SuppId}}</td>
+                            <td> {{d.SuppName}}</td>
+
+
+                            <td class="center">
+                                {{d.phoneNo}}
+                            </td>
+                            <td class="center">
+                                {{d.DateCreated}}
+                            </td>
+                            <td class="col-sm-1"><a href="#/supp/{{d.SuppId}}"><span class="glyphicon glyphicon-log-in"></span></a></td>
+                        </tr>
+
+
+                        <!--<tr class="even gradeC">
+                    <td>Trident</td>
+
+                    <td class="center">5</td>
+                    <td class="center">C</td>
+                </tr>-->
+                    </tbody>
+                </table>
+                <!-- /.table-responsive -->
+
+            </div>
+            <!-- /.panel-body -->
+        </div>
+
+
+    </div>
+

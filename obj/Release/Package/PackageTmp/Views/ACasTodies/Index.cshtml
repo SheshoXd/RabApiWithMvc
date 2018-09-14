@@ -1,0 +1,70 @@
+﻿@model IEnumerable<RabApiWithMvc.Models.CasTody>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CarId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CasDebet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CasCredeit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CasFor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CasDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateCreated)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isDeleted)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CarId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CasDebet)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CasCredeit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CasFor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CasDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateCreated)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.isDeleted)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CastodyId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CastodyId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CastodyId })
+        </td>
+    </tr>
+}
+
+</table>

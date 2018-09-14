@@ -1,0 +1,72 @@
+﻿@model RabApiWithMvc.Models.GLAccount
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>GLAccount</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AccType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GlCreditor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GlCreditor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GLDebit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GLDebit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateCreated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateCreated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsDeleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsDeleted)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

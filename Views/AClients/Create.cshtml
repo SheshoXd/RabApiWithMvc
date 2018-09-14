@@ -1,0 +1,130 @@
+﻿@model RabApiWithMvc.Models.Client
+
+@{
+    ViewBag.Title = "Create";
+
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="row">
+
+        <div class="col-md-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>صفة اضافة بيانات موزع جديد</h2>
+
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <br />
+                    <form class="form-horizontal form-label-right">
+
+                        <div class="form-group row">
+
+                            <label class="control-label col-md-2 col-lg-2 col-xs-12">اسم العميل</label>
+                            <div class="col-lg-4">
+                                @Html.EditorFor(model => model.ClntName, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                                @Html.ValidationMessageFor(model => model.ClntName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group row ">
+
+                            <label class="control-label col-md-2 col-lg-2 col-xs-12">المسؤول</label>
+                            <div class="col-lg-4">
+                                @Html.EditorFor(model => model.OwnerName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.OwnerName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group row ">
+
+                            <label class="control-label col-md-2 col-lg-2 col-xs-12">هاتف</label>
+                            <div class="col-lg-4">
+                                @Html.EditorFor(model => model.PhoneNo, new { htmlAttributes = new { @class = "form-control", @type = "tel", required = "required" } })
+                                @Html.ValidationMessageFor(model => model.PhoneNo, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group row ">
+
+                            <label class="control-label col-md-2 col-lg-2 col-xs-12">منطقه</label>
+                            <div class="col-lg-4">
+                                @Html.DropDownList("AreaId", null, htmlAttributes: new { @class = "form-control", required = "required" })
+                                @Html.ValidationMessageFor(model => model.AreaId, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group row ">
+                            @*@Html.LabelFor(model => model.fullAddress, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <label class="control-label col-md-2 col-lg-2 col-xs-12">العنوان كامل</label>
+                            <div class="col-lg-4">
+                                @Html.TextAreaFor(model => model.fullAddress, new { htmlAttributes = new { @class = "form-control", @rows = "5" } })
+                                @Html.ValidationMessageFor(model => model.fullAddress, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group row ">
+                            @*@Html.LabelFor(model => model.Type, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                            <label class="control-label col-md-2 col-lg-2 col-xs-12">طريقة الدفع</label>
+                            <div class="col-lg-4">
+
+                                @Html.DropDownList("FooBarDropDown", new List<SelectListItem>
+                                    {
+                                   new SelectListItem{ Text="نقدى ", Value = "1" },
+                             new SelectListItem{ Text="اجل", Value = "2" },
+ 
+                                     })
+
+                            </div>
+                        </div>
+
+                        <div class="form-group row ">
+
+                            <label class="control-label col-md-2 col-lg-2 col-xs-12">عليه(مبالغ متبقيه عليه)</label>
+                            <div class="col-lg-4">
+                                @Html.EditorFor(model => model.ClntDebit, new { htmlAttributes = new { @class = "form-control", @type = "number" } })
+                                @Html.ValidationMessageFor(model => model.ClntDebit, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+
+                            <label class="control-label col-md-2 col-lg-2 col-xs-12">له(مبلغ متبقيه له)</label>
+                            <div class="col-lg-4">
+                                @Html.EditorFor(model => model.ClntCreditor, new { htmlAttributes = new { @class = "form-control", @type = "number" } })
+                                @Html.ValidationMessageFor(model => model.ClntCreditor, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group row ">
+
+                            <label class="control-label col-md-2 col-lg-2 col-xs-12">فرق الحساب</label>
+                            <div class="col-lg-4">
+                                <input class="form-control" value="{{ClntCreditor}}" />
+                            </div>
+                        </div>
+
+                        <div class="form-group row row ">
+
+                            <label class="control-label col-md-2 col-lg-2 col-xs-12">اقصى دين</label>
+                            <div class="col-lg-4">
+                                @Html.EditorFor(model => model.ClntMaxBalance, new { htmlAttributes = new { @class = "form-control", @type = "number" } })
+                                @Html.ValidationMessageFor(model => model.ClntMaxBalance, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-9 col-lg-9 col-xs-12 col-md-offset-3">
+                                <button type="submit" class="btn btn-primary">Cancel</button>
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+}
+

@@ -1,0 +1,84 @@
+﻿@model IEnumerable<RabApiWithMvc.Models.Client>
+
+
+<div class="col-lg-6"><p> حياة للأرانب و السمان و الاصناف البلدى</p></div><div class="col-lg-6">zxcczxvzxzcvxcv</div>
+<div class="col-lg-6"><p> ادارة المهندس / محمد حسن</p></div><div class="col-lg-6">zxvvxzvxvzxcvxcvzxc</div>
+<table class="table border-blue">
+    <thead>
+        <tr>الصنف</tr>
+
+        <tr>القائم</tr>
+        <tr>الصافى</tr>
+        <tr>السعر</tr>
+        <tr>التاريخ </tr>
+        <tr> ملاحظات</tr>
+
+    </thead>
+    <tbody>
+
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+        <tr> </tr>
+        <tr> </tr>
+
+    </tbody>
+
+</table>
+
+
+
+
+<table class="table">
+   
+
+@foreach (var item in Model) {
+    <tr>
+      
+        <td>
+            @Html.DisplayFor(modelItem => item.ClntName)
+        </td>
+    
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneNo)
+        </td>
+      
+  
+        <td>
+            @Html.DisplayFor(modelItem => item.ClntBalance)
+        </td>
+    
+
+     
+        <td>
+           
+            @foreach (var it in item.Vauchers.Where(d => d.VauStatus == false))
+            {
+                <table>
+                    <tr>
+                        <td>المبلغ</td>
+                        <td>القديم</td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => it.VauAmount)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => it.VauOldAmunt)
+                        </td>
+                    </tr>
+                </table>
+
+            }
+        </td>
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ClntId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ClntId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ClntId })
+        </td>*@
+    </tr>
+}
+
+</table>
