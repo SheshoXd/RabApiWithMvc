@@ -1,28 +1,22 @@
 ﻿angular.module('RabetsApp')
-.service('UtilitiesService', function ($http) {
+    .service('UtilitiesService', function ($http, appSettings) {
 
     this.UtSupp = function () {
 
-        return getDataUrl('Suppliers/GetSuppliers');
+     
+        return $http.get(appSettings.serverPath + 'Suppliers/GetSuppliers');
     };
   
     this.Utclnt = function () {
 
-        return getDataUrl('Clients/GetClients');
+      
+        return $http.get(appSettings.serverPath +'Clients/GetClients');
     };
 
-    this.UtAreas = function(parameters) {
-        return $http.get(appSettings.serverPath +'api/Areas/GetAreas');
+        this.UtAreas = function (parameters) {
+            return $http.get(appSettings.serverPath +'Areas/GetAreas');
     }
 
-   var getDataUrl = function (url) {
 
-        return $http.get(appSettings.serverPath +'api/'+url);
 
-    };
-
-    this.masterUrl = function () {
-        
-        return 'http://localhost:1234/api/';
-    }
 });

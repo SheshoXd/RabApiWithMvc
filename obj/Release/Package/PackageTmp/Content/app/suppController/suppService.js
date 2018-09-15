@@ -3,7 +3,7 @@
         //Get all Supliers 
         this.Supps = function () {
 
-            return $http.get(appSettings.serverPath +'api/Suppliers/GetSuppliers');
+            return $http.get('api/Suppliers/GetSuppliers');
 
         };
 
@@ -18,6 +18,6 @@
               
             //}
             //return f;
-            return $http.get(appSettings.serverPath +'api/Suppliers/GetSupplier/?id='+ id);
+            return $http.get('api/Suppliers/GetSupplier/?id='+ id);
         };
     });

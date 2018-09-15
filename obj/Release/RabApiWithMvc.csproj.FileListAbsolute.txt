@@ -143,3 +143,5 @@ D:\Projects\RabApiWithoutNg\obj\Release\RabApiWithMvc.csproj.CoreCompileInputs.c
 D:\Projects\RabApiWithoutNg\obj\Release\RabApiWithMvc.csproj.CopyComplete
 D:\Projects\RabApiWithoutNg\obj\Release\RabApiWithMvc.dll
 D:\Projects\RabApiWithoutNg\obj\Release\RabApiWithMvc.pdb
+D:\Projects\RabApiWithMvc\obj\Release\RabApiWithMvc.csproj.CoreCompileInputs.cache
+D:\Projects\RabApiWithMvc\obj\Release\RabApiWithMvc.csproj.CopyComplete

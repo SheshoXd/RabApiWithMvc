@@ -1,7 +1,7 @@
 ﻿
 (function () {
     var id = null;
-    var app = angular.module('RabetsApp', ['ngRoute', 'ui.bootstrap', 'ui.grid', 'ui.grid.selection', 'ui.grid.edit']);
+    var app = angular.module('RabetsApp', ['ngRoute', 'ui.bootstrap', 'ui.grid', 'ui.grid.selection', 'ui.grid.edit', 'ngResource']);
     app.config(["$routeProvider", "$locationProvider",
         function ($routeProvider, $locationProvider) {
 
@@ -188,10 +188,14 @@
                 .otherwise({
                     redirectTo: "/DashBord"
                 });
-            //$locationProvider.html5Mode(true);
-        }]);
 
-   
-  
+       
+            //$locationProvider.html5Mode(true);
+        }])
+        .constant("appSettings",
+        {
+            //API Server Path (Must add the appSettings on every service )
+            serverPath: "http://localhost:1234/api/",
+        });
     })();
 

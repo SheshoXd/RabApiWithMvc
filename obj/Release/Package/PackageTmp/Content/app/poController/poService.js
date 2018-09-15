@@ -1,5 +1,5 @@
 ﻿
-angular.module('RabetsApp' )
+angular.module('RabetsApp')
     .service('poService', function ($http, appSettings) {
 
    
@@ -8,17 +8,17 @@ angular.module('RabetsApp' )
 
 
 
-        return $http.get(appSettings.serverPath +'/api/order/' + id );
+        return $http.get(appSettings.serverPath + 'order/' + id);
 
     };
 
     this.Getpos = function () {
-        return $http.get(appSettings.serverPath +'api/order/all');
+        return $http.get(appSettings.serverPath +'order/all');
     };
-
-    this.newOrdNum = function (type) {
         
-        return $http.get(appSettings.serverPath +'PurchaseOrders/NewId');
+    this.newOrdNum = function (type) {
+
+        return $http.get(appSettings.serverPath + 'PurchaseOrders/NewId');
     }
 
     this.Insertpo = function (po) {
@@ -29,7 +29,7 @@ angular.module('RabetsApp' )
                 //'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
             }
         }
-        return $http.post(appSettings.serverPath +'PurchaseOrders/PostPurchaseOrder', po, config)
+        return $http.post(appSettings.serverPath + 'PurchaseOrders/PostPurchaseOrder', po, config)
      .success(function (data) {
             alert("done");
             location.reload();
@@ -52,7 +52,7 @@ angular.module('RabetsApp' )
             }
         }
         
-        return $http.put(appSettings.serverPath +'PurchaseOrders/PutPurchaseOrder/' + po.OrderId, po, config).success(function (data) {
+        return $http.put(appSettings +'PurchaseOrders/PutPurchaseOrder/' + po.OrderId, po, config).success(function (data) {
             alert("done");
             location.reload();
 

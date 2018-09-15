@@ -1,9 +1,9 @@
 ﻿angular.module('RabetsApp')
-    .service('CastodyService', function ($http) {
+    .service('CastodyService', function ($http){
         //Get all Supliers 
         this.GetListCast = function () {
 
-            return $http.get(appSettings.serverPath +'api/Castody/GetListCast');
+            return $http.get( 'api/Castody/GetListCast');
 
         };
 
@@ -18,6 +18,6 @@
               
         //    //}
         //    //return f;
-        //    return $http.get(appSettings.serverPath +'api/Suppliers/GetSupplier/?id='+ id);
+        //    return $http.get('api/Suppliers/GetSupplier/?id='+ id);
         //};
     });

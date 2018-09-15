@@ -1,16 +1,16 @@
 ﻿angular.module('RabetsApp')
-    .service('clntService', function($http) {
+    .service('clntService', function ($http) {
         
         this.getClnts= function() {
-            return $http.get(appSettings.serverPath +'api/Clients/GetClients');
+            return $http.get('api/Clients/GetClients');
         }
     
         this.GetClintesAccount = function () {
-            return $http.get(appSettings.serverPath +'api/Clients/GetClintesAccount');
+            return $http.get('api/Clients/GetClintesAccount');
         }
 
         this.getClnt = function(id) {
-            return $http.get(appSettings.serverPath +'api/Clients/GetClients/'+id);
+            return $http.get('api/Clients/GetClients/'+id);
         }
 
         this.InsertClnt = function (clnt) {
@@ -21,7 +21,7 @@
                     //'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
                 }
             }
-            return $http.post(appSettings.serverPath +'api/Clients/PostClient/', clnt, config)
+            return $http.post('api/Clients/PostClient/', clnt, config)
                 .success(function (data) {
                     alert("done");
                     location.reload();

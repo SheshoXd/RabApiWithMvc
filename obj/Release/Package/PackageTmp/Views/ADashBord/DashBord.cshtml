@@ -623,7 +623,7 @@
           }
           
           */
-        var mydata=   $.getJSON(appSettings.serverPath +'api/Report/dds', function (data) {
+        var mydata=   $.getJSON('api/Report/dds', function (data) {
             console.log(data);
         });
         var inc = '@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.MyData))';

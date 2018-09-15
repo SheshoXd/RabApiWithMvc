@@ -52,10 +52,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/25/2017 18:42:41</publishTime>
     </File>
     <File Include="bin/RabApiWithMvc.dll">
-      <publishTime>09/14/2018 17:12:10</publishTime>
+      <publishTime>09/15/2018 01:58:35</publishTime>
     </File>
     <File Include="bin/RabApiWithMvc.pdb">
-      <publishTime>09/14/2018 17:12:10</publishTime>
+      <publishTime>09/15/2018 01:58:35</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
       <publishTime>10/03/2016 22:14:12</publishTime>
@@ -109,7 +109,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/14/2018 16:13:37</publishTime>
     </File>
     <File Include="Content/app/CastodyController/CastodyService.js">
-      <publishTime>09/14/2018 16:37:10</publishTime>
+      <publishTime>09/14/2018 18:35:39</publishTime>
     </File>
     <File Include="Content/app/clntController/clntAcc.html">
       <publishTime>09/14/2018 16:13:38</publishTime>
@@ -148,7 +148,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/14/2018 16:13:38</publishTime>
     </File>
     <File Include="Content/app/clntController/clntService.js">
-      <publishTime>09/14/2018 16:37:10</publishTime>
+      <publishTime>09/14/2018 18:09:57</publishTime>
     </File>
     <File Include="Content/app/DashBordController/dashBord.html">
       <publishTime>09/14/2018 16:13:38</publishTime>
@@ -178,7 +178,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/14/2018 16:13:38</publishTime>
     </File>
     <File Include="Content/app/itemController/itemService.js">
-      <publishTime>09/14/2018 16:38:00</publishTime>
+      <publishTime>09/14/2018 18:16:41</publishTime>
     </File>
     <File Include="Content/app/itemController/itemsLand.html">
       <publishTime>09/14/2018 16:13:38</publishTime>
@@ -205,13 +205,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/14/2018 16:13:38</publishTime>
     </File>
     <File Include="Content/app/poController/poService.js">
-      <publishTime>09/14/2018 16:25:08</publishTime>
+      <publishTime>09/14/2018 19:34:51</publishTime>
     </File>
     <File Include="Content/app/poController/RefactRef.js">
       <publishTime>09/14/2018 16:13:38</publishTime>
     </File>
     <File Include="Content/app/RabetsApp.js">
-      <publishTime>09/14/2018 16:44:01</publishTime>
+      <publishTime>09/14/2018 18:00:42</publishTime>
     </File>
     <File Include="Content/app/soController/dshController.js">
       <publishTime>09/14/2018 16:13:38</publishTime>
@@ -244,7 +244,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/14/2018 16:13:39</publishTime>
     </File>
     <File Include="Content/app/soController/soService.js">
-      <publishTime>09/14/2018 16:13:39</publishTime>
+      <publishTime>09/14/2018 19:40:51</publishTime>
     </File>
     <File Include="Content/app/suppController/suppController.js">
       <publishTime>09/14/2018 16:13:39</publishTime>
@@ -262,10 +262,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/14/2018 16:13:39</publishTime>
     </File>
     <File Include="Content/app/suppController/suppService.js">
-      <publishTime>09/14/2018 16:37:11</publishTime>
+      <publishTime>09/14/2018 18:11:21</publishTime>
     </File>
     <File Include="Content/app/UtilitiesController/UtilitiesService.js">
-      <publishTime>09/14/2018 16:37:11</publishTime>
+      <publishTime>09/14/2018 18:15:24</publishTime>
     </File>
     <File Include="Content/app/VaucherController/NewVaucher.html">
       <publishTime>09/14/2018 16:13:39</publishTime>
@@ -283,7 +283,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/14/2018 16:13:39</publishTime>
     </File>
     <File Include="Content/app/VaucherController/VaucherSerivers.js">
-      <publishTime>09/14/2018 16:37:11</publishTime>
+      <publishTime>09/14/2018 18:10:30</publishTime>
     </File>
     <File Include="Content/appComponent/appComponent.js">
       <publishTime>09/14/2018 16:13:37</publishTime>
@@ -13018,7 +13018,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/17/2017 11:33:56</publishTime>
     </File>
     <File Include="Views/ADashBord/DashBord.cshtml">
-      <publishTime>09/14/2018 16:37:55</publishTime>
+      <publishTime>09/14/2018 18:10:40</publishTime>
     </File>
     <File Include="Views/AEmployees/Create.cshtml">
       <publishTime>05/20/2017 13:42:52</publishTime>
@@ -13060,19 +13060,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/14/2018 15:45:18</publishTime>
     </File>
     <File Include="Views/APurchaseOrders/Index.cshtml">
-      <publishTime>09/14/2018 15:45:21</publishTime>
+      <publishTime>09/14/2018 19:53:39</publishTime>
     </File>
     <File Include="Views/ASaleOrders/Create.cshtml">
-      <publishTime>09/14/2018 15:49:26</publishTime>
+      <publishTime>09/14/2018 19:42:23</publishTime>
     </File>
     <File Include="Views/ASaleOrders/Delete.cshtml">
       <publishTime>09/14/2018 15:46:11</publishTime>
     </File>
     <File Include="Views/ASaleOrders/Edit.cshtml">
-      <publishTime>09/14/2018 15:49:40</publishTime>
+      <publishTime>09/14/2018 19:37:50</publishTime>
     </File>
     <File Include="Views/ASaleOrders/Index.cshtml">
-      <publishTime>09/14/2018 15:46:21</publishTime>
+      <publishTime>09/14/2018 19:38:34</publishTime>
     </File>
     <File Include="Views/ASuppliers/Create.cshtml">
       <publishTime>09/13/2018 13:42:53</publishTime>
@@ -13138,7 +13138,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/12/2016 02:33:32</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>09/14/2018 16:44:21</publishTime>
+      <publishTime>09/14/2018 18:02:57</publishTime>
     </File>
     <File Include="Views/Shared/_right_col.cshtml">
       <publishTime>09/14/2018 16:58:55</publishTime>
@@ -13165,7 +13165,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/18/2016 00:02:12</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>09/14/2018 17:12:16</publishTime>
+      <publishTime>09/15/2018 01:58:39</publishTime>
     </File>
   </ItemGroup>
 </Project>

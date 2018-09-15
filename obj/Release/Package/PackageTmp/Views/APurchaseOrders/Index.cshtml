@@ -10,79 +10,79 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Employee.EmpName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Supplier.SuppName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OrderDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PaymantType)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TotalPrice)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Debit)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Creditor)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PostingStats)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateCreated)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsDeleted)
-        </th>
-        <th></th>
-    </tr>
+<!-- /.row -->
+<div class="row ">
+    <div class="col-lg-8">
+        <h1 class="page-header ">اوامر الشراء</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<div class="row ">
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Employee.EmpName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Supplier.SuppName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OrderDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PaymantType)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TotalPrice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Debit)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Creditor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PostingStats)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateCreated)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsDeleted)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
+    <div class="col-lg-9">
+        <div class="panel panel-default col-lg-pull-8">
+            <div class="panel-heading">
+                DataTables Advanced Tables
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body" ng-controller="poController" ng-init="initPoLand();">
+                <table class="table table-striped table-bordered table-hover col-lg-pull-8" id="dataTables-example">
+                    <thead>
+                        <tr>
+                            <th class="right center col-sm-1" dir="rtl">رقم</th>
+                            <th class="col-sm-2">تاريخ</th>
+                            <th class="col-sm-3">اسم المورد (المزرعه)</th>
+                            <th class="col-sm-2">اجمالى السعر</th>
+                            <th class="col-sm-2">المدفوع</th>
+                            <th class="col-sm-2">الباقى</th>
+                            <th class="col-sm-2">الترحيل</th>
+                            <th class="col-sm-1">عرض</th>
+                        </tr>
+                    </thead>
+                    <tbody ng-repeat="d in pos">
 
-</table>
+                        <tr>
+
+                            <td> {{d.OrderId}}</td>
+                            <td> {{d.OrderDate}}</td>
+                            <td class="center">
+                                {{d.Supplier.SuppName}}
+                            </td>
+
+                            <td class="center">
+                                {{d.TotalPrice}}
+                            </td>
+                            <td class="center">
+                                {{d.Creditor}}
+                            </td>
+                            <td class="center">
+                                {{d.Debit}}
+                            </td>
+                            <td class="center">
+
+                                <button type="button" ng-click="postpo(d.OrderId)" ng-disabled="{{d.PostingStats}}" class="btn btn-danger"> ترحيل الفاتورة</button>
+                            </td>
+                            <td class="col-sm-1"><a href="~/APurchaseOrders/edit/{{d.OrderId}}"><span class="glyphicon glyphicon-log-in"></span></a></td>
+                        </tr>
+
+                        <!--<tr class="even gradeC">
+                            <td>Trident</td>
+
+                            <td class="center">5</td>
+                            <td class="center">C</td>
+                        </tr>-->
+
+                    </tbody>
+                    <tfoot>
+
+                    </tfoot>
+                </table>
+                <!-- /.table-responsive -->
+            </div>
+        </div>
+        <!-- /.panel-body -->
+    </div>
+
+</div>
+
+

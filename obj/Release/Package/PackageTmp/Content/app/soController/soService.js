@@ -1,23 +1,23 @@
 ﻿/// <reference path="../UtilitiesController/UtilitiesService.js" />
 
 angular.module('RabetsApp')
-.service('soService', function ($http, UtilitiesService) {
+    .service('soService', function ($http, UtilitiesService, appSettings) {
 
-    var ut = "http://localhost:1234/api/";
+   
 
     this.Getso = function (id) {
 
-        return $http.get(ut+'SaleOrders/GetSaleOrder/' + id);
+        return $http.get(appSettings.serverPath  +'SaleOrders/GetSaleOrder/' + id);
         
     };
 
     this.Getsos = function () {
-        return $http.get(ut + 'SaleOrders/GetSaleOrders');
+        return $http.get(appSettings.serverPath +'SaleOrders/GetSaleOrders');
     };
 
     this.newSOrdNum = function () {
         
-        return $http.get(ut + 'SaleOrders/NewNumber');
+        return $http.get(appSettings.serverPath +'SaleOrders/NewNumber');
     }
 
     this.Insertso = function (so) {
@@ -28,7 +28,7 @@ angular.module('RabetsApp')
                 //'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
             }
         }
-        return $http.post( ut+'SaleOrders/PostSaleOrder/', so, config)
+        return $http.post(appSettings.serverPath +'SaleOrders/PostSaleOrder/', so, config)
             .success(function (data) {
             alert("done");
             location.reload();
@@ -52,7 +52,7 @@ angular.module('RabetsApp')
                 }
                 
             }
-            return $http.get(ut+'Posting/PostRequestSealOrder/' + so, config).success(function (data) {
+            return $http.get(appSettings.serverPath +'Posting/PostRequestSealOrder/' + so, config).success(function (data) {
                 alert("done");
                 location.reload();
 
@@ -75,7 +75,7 @@ angular.module('RabetsApp')
             }
         }
         
-        return $http.put(ut+'SaleOrders/PutSaleOrder/' + so.OrderId, so, config)
+        return $http.put(appSettings.serverPath +'SaleOrders/PutSaleOrder/' + so.OrderId, so, config)
             .success(function (data) {
             alert("done");
             location.reload();

@@ -1,6 +1,6 @@
 ﻿
 angular.module('RabetsApp')
-.service('VaucherSerivers', function ($http) {
+    .service('VaucherSerivers', function ($http) {
 
 
 
@@ -8,17 +8,17 @@ angular.module('RabetsApp')
 
 
 
-        return $http.get(appSettings.serverPath +'api/Vaucher/Get/' + id);
+        return $http.get('api/Vaucher/Get/' + id);
 
     };
 
     this.GetVaus = function () {
-        return $http.get(appSettings.serverPath +'api/Vaucher');
+        return $http.get('api/Vaucher');
     };
 
     //this.newSOrdNum = function () {
     //    
-    //    return $http.get(appSettings.serverPath +'api/SaleOrders/NewNumber');
+    //    return $http.get('api/SaleOrders/NewNumber');
     //}
 
 //    this.InsertVao = function (so) {
@@ -29,7 +29,7 @@ angular.module('RabetsApp')
 //                //'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
 //            }
 //        }
-//        return $http.post(appSettings.serverPath +'api/SaleOrders/PostSaleOrder/', so, config)
+//        return $http.post('api/SaleOrders/PostSaleOrder/', so, config)
 //            .success(function (data) {
 //                alert("done");
 //                location.reload();
@@ -55,7 +55,7 @@ angular.module('RabetsApp')
             }
 
         }
-        return $http.get(appSettings.serverPath +'api/Posting/PostVaucher/' + Vau, config).success(function (data) {
+        return $http.get('api/Posting/PostVaucher/' + Vau, config).success(function (data) {
             alert("done");
             location.reload();
 
@@ -80,7 +80,7 @@ angular.module('RabetsApp')
     //        }
     //    }
     //    
-    //    return $http.put(appSettings.serverPath +'api/SaleOrders/PutSaleOrder/' + so.OrderId, so, config)
+    //    return $http.put('api/SaleOrders/PutSaleOrder/' + so.OrderId, so, config)
     //        .success(function (data) {
     //            alert("done");
     //            location.reload();

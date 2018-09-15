@@ -1,17 +1,17 @@
 ﻿
 angular.module('RabetsApp')
-.service('itemsService', function ($http) {
+    .service('itemsService', function ($http, appSettings) {
 
     this.GetLastItem = function (id) {
-        return $http.get(appSettings.serverPath +'api/Items/GetItems/?id=' + id);
+        return $http.get(appSettings.serverPath +'Items/GetItems/?id=' + id);
     }
 
     this.Getitems = function () {
-        return $http.get(appSettings.serverPath +'api/Items/GetItems');
+        return $http.get(appSettings.serverPath +'Items/GetItems');
     }
 
     this.GetUints = function () {
-        return $http.get(appSettings.serverPath +'api/Uints/GetUints');
+        return $http.get(appSettings.serverPath +'Uints/GetUints');
     }
 
     this.InsertItem = function (item)
@@ -22,7 +22,7 @@ angular.module('RabetsApp')
                 //'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
             }
         }
-        return $http.post(appSettings.serverPath +'api/Items', item, config);
+        return $http.post('api/Items', item, config);
     }
 
     this.UpdateItem = function (item) {
@@ -32,7 +32,7 @@ angular.module('RabetsApp')
                 //'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
             }
         }
-        return $http.post(appSettings.serverPath +'api/Item/PostItems', item, config).success(function (data) {
+        return $http.post(appSettings.serverPath +'Item/PostItems', item, config).success(function (data) {
             alert("done");
             location.reload();
 
