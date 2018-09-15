@@ -39,7 +39,7 @@
                     ],
                     responsive: true,
                     "ajax": {
-                        "url": "http://localhost:1234/api/SaleOrders/GetSaleOrders",
+                        "url": appSettings.serverPath+"SaleOrders/GetSaleOrders",
                         dataSrc: ''
                     },
                     "columns": [{
