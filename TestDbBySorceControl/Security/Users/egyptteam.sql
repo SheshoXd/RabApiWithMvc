@@ -1,0 +1,2 @@
+CREATE USER [egyptteam] WITHOUT LOGIN
+GO
